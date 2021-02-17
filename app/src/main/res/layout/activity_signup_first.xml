@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login_signup"
+    tools:context=".signup_first"
     android:background="@drawable/ic_background"
     android:orientation="vertical"
-    android:alpha="1"
     >
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -18,16 +18,18 @@
         android:src="@drawable/logo" />
 
     <TextView
+        android:id="@+id/createaccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome\n Back!!!"
+        android:text="Create\nAccount"
         android:textSize="48sp"
         android:textStyle="bold"
         android:textColor="#041470"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:fontFamily="serif"/>
+        android:fontFamily="serif"
+        android:textAllCaps="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,11 +42,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/appname"
+            android:id="@+id/username"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             app:hintTextColor="@color/purple_700"
             android:textColorHint="#8A7C7C"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             >
@@ -53,9 +55,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:fontFamily="serif"
-                android:hint="Email-ID"
-                android:id="@+id/emailsandy1"
-                android:inputType="textEmailAddress"
+                android:hint="User Name"
+                android:id="@+id/usernamesandy"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:padding="5dp"
                 />
@@ -64,15 +66,40 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
+            android:id="@+id/email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            app:passwordToggleEnabled="true"
             app:hintTextColor="@color/purple_700"
             android:textColorHint="#8A7C7C"
-            android:layout_marginTop="10dp"
-            app:boxStrokeWidthFocused="2dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:fontFamily="serif"
+                android:hint="Email-id"
+                android:id="@+id/emailsandy"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:hintTextColor="@color/purple_700"
+            android:textColorHint="#8A7C7C"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:passwordToggleEnabled="true"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -88,47 +115,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Remember Me"
-                android:textColor="@color/black"
-                android:layout_gravity="left"
-                android:fontFamily="serif"
-                android:layout_marginLeft="5dp"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginLeft="94dp"
-                android:background="#00000000"
-                android:fontFamily="serif"
-                android:text="Forget Password?"
-                android:textColor="#FB1504"
-                android:textSize="10sp"
-                android:onClick="forgetpassword"
-                />
-
-        </LinearLayout>
         <Button
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/buton"
-            android:text="Login"
+            android:text="Go"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:soundEffectsEnabled="true"
-            android:onClick="login"
+            android:onClick="goto_otp"
             />
 
         <ProgressBar
@@ -140,19 +137,6 @@
             />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/newuser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#051259"
-        android:text="New user?Sign Up"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:onClick="newuser_signup"
-        />
 
 
 </LinearLayout>

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DictionaryApp">
+        <activity android:name=".forgotpassword" />
         <activity android:name=".dashboard" />
         <activity android:name=".signup_first" />
         <activity android:name=".login_signup" />

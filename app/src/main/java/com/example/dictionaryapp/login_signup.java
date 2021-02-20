@@ -96,6 +96,8 @@ public class login_signup extends AppCompatActivity {
     }
 
     public void forgetpassword(View view) {
+        Intent intent =new Intent(getApplicationContext(),forgotpassword.class);
+        startActivity(intent);
 
     }
 }

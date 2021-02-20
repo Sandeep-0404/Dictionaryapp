@@ -77,7 +77,7 @@ public class signup_first extends AppCompatActivity {
         }
 
         if(passwordtext.length()<6){
-            password.setError("minimum length of passwword is 6 leter");
+            password.setError("minimum length of password is 6 leter");
             password.requestFocus();
         }
 

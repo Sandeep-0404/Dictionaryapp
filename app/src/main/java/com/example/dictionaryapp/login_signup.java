@@ -4,12 +4,22 @@ package com.example.dictionaryapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +37,7 @@ public class login_signup extends AppCompatActivity {
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,8 @@ public class login_signup extends AppCompatActivity {
         progressBar =(ProgressBar) findViewById(R.id.progressbarlogin);
         mAuth = FirebaseAuth.getInstance();
         newusertext.setPaintFlags(newusertext.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+
+
     }
 
     public void newuser_signup(View view){
@@ -48,8 +61,11 @@ public class login_signup extends AppCompatActivity {
     }
 
     public void login(View view) {
+
+
         String email = Emailid.getText().toString().trim();
         String  password = pass.getText().toString().trim();
+
 
         if (email.isEmpty()){
             this.Emailid.setError("Field can't be empty");
@@ -94,6 +110,7 @@ public class login_signup extends AppCompatActivity {
         });
 
     }
+
 
     public void forgetpassword(View view) {
         Intent intent =new Intent(getApplicationContext(),forgotpassword.class);

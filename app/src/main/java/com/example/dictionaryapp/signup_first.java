@@ -101,6 +101,9 @@ public class signup_first extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"User Registered Succesfully",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), dashboard.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("username",usernametext);
+                    intent.putExtra("emailid",emailtext);
+                    intent.putExtra("password",passwordtext);
                     startActivity(intent);
 
                 }

@@ -36,6 +36,7 @@ public class login_signup extends AppCompatActivity {
      EditText Emailid,pass;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
+    CheckBox rememberMe;
 
 
     @Override
@@ -46,6 +47,7 @@ public class login_signup extends AppCompatActivity {
 
 
         newusertext =(TextView) findViewById(R.id.newuser);
+        rememberMe =(CheckBox) findViewById(R.id.remember_me);
         Emailid =(EditText) findViewById(R.id.emailsandy1);
         pass =(EditText) findViewById(R.id.passwordsandy);
         progressBar =(ProgressBar) findViewById(R.id.progressbarlogin);
@@ -89,7 +91,9 @@ public class login_signup extends AppCompatActivity {
             pass.requestFocus();
         }
 
+        if(rememberMe.isChecked()){
 
+        }
 
 
         progressBar.setVisibility(View.VISIBLE);

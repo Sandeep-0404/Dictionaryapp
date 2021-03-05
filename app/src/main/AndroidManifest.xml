@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DictionaryApp">
-        <activity android:name=".wordoftheday"></activity>
+        <activity android:name=".recycler_click"></activity>
+        <activity android:name=".MyProfile" />
+        <activity android:name=".search" />
+        <activity android:name=".wordoftheday" />
         <activity android:name=".pronunciation" />
         <activity android:name=".wordgame" />
         <activity android:name=".forgotpassword" />

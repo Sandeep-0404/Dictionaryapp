@@ -43,4 +43,15 @@ public class dashboard extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), wordgame.class);
         startActivity(intent);
     }
+
+    public void goToSearch(View view) {
+        Intent intent =new Intent(getApplicationContext(),search.class);
+        startActivity(intent);
+    }
+
+    public void MyProfile(View view) {
+        Intent intent =new Intent(getApplicationContext(),MyProfile.class);
+        startActivity(intent);
+    }
 }
+

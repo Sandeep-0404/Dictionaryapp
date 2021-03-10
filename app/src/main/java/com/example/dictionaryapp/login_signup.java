@@ -33,7 +33,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class login_signup extends AppCompatActivity {
 
     private TextView newusertext;
-     EditText Emailid,pass;
+    EditText Emailid, pass;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
     CheckBox rememberMe;
@@ -42,23 +42,23 @@ public class login_signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_signup);
 
 
-        newusertext =(TextView) findViewById(R.id.newuser);
-        rememberMe =(CheckBox) findViewById(R.id.remember_me);
-        Emailid =(EditText) findViewById(R.id.emailsandy1);
-        pass =(EditText) findViewById(R.id.passwordsandy);
-        progressBar =(ProgressBar) findViewById(R.id.progressbarlogin);
+        newusertext = (TextView) findViewById(R.id.newuser);
+        rememberMe = (CheckBox) findViewById(R.id.remember_me);
+        Emailid = (EditText) findViewById(R.id.emailsandy1);
+        pass = (EditText) findViewById(R.id.passwordsandy);
+        progressBar = (ProgressBar) findViewById(R.id.progressbarlogin);
         mAuth = FirebaseAuth.getInstance();
-        newusertext.setPaintFlags(newusertext.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        newusertext.setPaintFlags(newusertext.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
     }
 
-    public void newuser_signup(View view){
-        Intent intent =new Intent(this,signup_first.class);
+    public void newuser_signup(View view) {
+        Intent intent = new Intent(this, signup_first.class);
         startActivity(intent);
     }
 
@@ -66,49 +66,48 @@ public class login_signup extends AppCompatActivity {
 
 
         String email = Emailid.getText().toString().trim();
-        String  password = pass.getText().toString().trim();
+        String password = pass.getText().toString().trim();
 
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             this.Emailid.setError("Field can't be empty");
             this.Emailid.requestFocus();
             return;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             this.Emailid.setError("Please enter a valid email");
             this.Emailid.requestFocus();
             return;
         }
 
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             pass.setError("field required");
             pass.requestFocus();
             return;
         }
 
-        if(password.length()<6){
+        if (password.length() < 6) {
             pass.setError("minimum length of passwword is 6 leter");
             pass.requestFocus();
         }
 
-        if(rememberMe.isChecked()){
+        if (rememberMe.isChecked()) {
 
         }
 
 
         progressBar.setVisibility(View.VISIBLE);
 
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Intent intent = new Intent(getApplicationContext(), dashboard.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -117,8 +116,10 @@ public class login_signup extends AppCompatActivity {
 
 
     public void forgetpassword(View view) {
-        Intent intent =new Intent(getApplicationContext(),forgotpassword.class);
+        Intent intent = new Intent(getApplicationContext(), forgotpassword.class);
         startActivity(intent);
 
     }
 }
+
+

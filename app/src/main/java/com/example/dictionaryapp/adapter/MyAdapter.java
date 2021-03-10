@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.example.dictionaryapp.R;
 import com.example.dictionaryapp.model.Listitem;
 import com.example.dictionaryapp.recycler_click;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,6 +30,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public MyAdapter(List<Listitem> listitems, Context context) {
         this.listitems = listitems;
         this.context = context;
+
     }
 
     @NonNull

@@ -10,39 +10,29 @@
     tools:openDrawer="start">
 
 
-    <com.google.android.material.navigation.NavigationView
+
+
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/navmenu"
-        app:headerLayout="@layout/navheader"
-        app:menu="@menu/iconmenu"
-        android:layout_gravity="start"
-        />
+        android:layout_height="wrap_content">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@drawable/background_dashboard"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:titleTextColor="@color/white"
+           />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp">
 
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_dashboard"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:title=" "
-                app:titleTextColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -60,7 +50,7 @@
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1" />
+                app:layout_constraintVertical_bias="0.047" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -88,10 +78,9 @@
                 android:onClick="goToSearch"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.219">
+                app:layout_constraintVertical_bias="0.155">
 
 
                 <TextView
@@ -119,7 +108,7 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="316dp"
+                android:layout_marginTop="232dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +153,7 @@
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="600dp"
+                android:layout_marginTop="490dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -180,8 +169,9 @@
 
                     <ImageView
                         android:id="@+id/imageView11"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="329dp"
+                        android:layout_height="201dp"
+                        android:layout_marginLeft="28dp"
                         android:elevation="10dp"
                         android:onClick="pronunciation"
                         app:srcCompat="@drawable/pronunciation" />
@@ -190,11 +180,20 @@
             </LinearLayout>
 
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </ScrollView>
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navmenu"
+        app:headerLayout="@layout/navheader"
+        app:menu="@menu/iconmenu"
+        android:layout_gravity="start"/>
+
+
 
 
 

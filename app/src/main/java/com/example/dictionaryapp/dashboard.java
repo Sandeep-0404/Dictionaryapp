@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -25,6 +26,7 @@ public class dashboard extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -39,6 +41,7 @@ public class dashboard extends AppCompatActivity {
         nav =(NavigationView)findViewById(R.id.navmenu);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer);
 
+
         toggle= new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -49,8 +52,8 @@ public class dashboard extends AppCompatActivity {
                switch (item1.getItemId())
                 {
                     case R.id.logout:
-                        Toast.makeText(dashboard.this, "hello", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                      Intent intent=new Intent(getApplicationContext(),login_signup.class);
+                      startActivity(intent);
                         break;
 
                     case R.id.menu_rate:

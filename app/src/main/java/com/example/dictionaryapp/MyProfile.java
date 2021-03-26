@@ -11,7 +11,7 @@ public class MyProfile extends AppCompatActivity {
 
     private TextView usernameid;
     private RatingBar ratingBar;
-    int MyRAting =0;
+    int MyRAting = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

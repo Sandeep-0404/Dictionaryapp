@@ -17,22 +17,22 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView logo;
     private ImageView name_logo;
-    Animation topanim,bottomanim;
+    Animation topanim, bottomanim;
     private static int sandeep = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this,login_signup.class);
+        Intent intent = new Intent(this, login_signup.class);
 
         logo = (ImageView) findViewById(R.id.logo);
         name_logo = (ImageView) findViewById(R.id.logo_name);
-        topanim = AnimationUtils.loadAnimation(this,R.anim.top_anim);
-        bottomanim = AnimationUtils.loadAnimation(this,R.anim.bottom_anim);
+        topanim = AnimationUtils.loadAnimation(this, R.anim.top_anim);
+        bottomanim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
 
         logo.setAnimation(topanim);
         name_logo.setAnimation(bottomanim);
@@ -43,6 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },sandeep);
+        }, sandeep);
     }
 }

@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 
 public class dbmanager extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME= "Student.db";
-    public static final String TABLE_NAME= "Student_TABLE";
-    public static final String COL_1= "ID";
-    public static final String COL_2= "NAME";
+    public static final String DATABASE_NAME = "Student.db";
+    public static final String TABLE_NAME = "Student_TABLE";
+    public static final String COL_1 = "ID";
+    public static final String COL_2 = "NAME";
     public static final String COL_3 = "SURNAME";
     public static final String COL_4 = "MARKS";
 
@@ -23,7 +23,7 @@ public class dbmanager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT , SURNAME, TEXT) ");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT , SURNAME, TEXT) ");
 
     }
 

@@ -50,7 +50,7 @@
                         android:layout_margin="20dp"
                         android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
                         android:textColor="@color/black"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -58,24 +58,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:text="WIKIPEDIA REFERENCE"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_gravity="center"
                 android:textSize="20sp"
-                android:layout_marginTop="10dp"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/wikipedia_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="www.sandeepghosh.com"
-                android:textColor="#1A34C3"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:textStyle="italic"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:text="www.sandeepghosh.com"
+                android:textColor="#1A34C3"
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
         </LinearLayout>
     </ScrollView>

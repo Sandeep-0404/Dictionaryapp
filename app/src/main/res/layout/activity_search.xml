@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".search"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".search">
 
 
     <EditText
@@ -13,18 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:padding="10dp"
-        android:hint="Search Here"
         android:background="@drawable/search_bg"
         android:drawableStart="@drawable/search"
         android:drawableLeft="@drawable/search"
-        />
+        android:hint="Search Here"
+        android:padding="10dp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

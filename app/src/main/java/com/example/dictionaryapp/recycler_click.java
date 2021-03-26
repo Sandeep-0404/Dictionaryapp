@@ -19,10 +19,10 @@ public class recycler_click extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_click);
 
-        wikipediaLink = (TextView)findViewById(R.id.wikipedia_link);
-        heading = (TextView)findViewById(R.id.heading);
-        description = (TextView)findViewById(R.id.description);
-        wikipediaLink.setPaintFlags(wikipediaLink.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        wikipediaLink = (TextView) findViewById(R.id.wikipedia_link);
+        heading = (TextView) findViewById(R.id.heading);
+        description = (TextView) findViewById(R.id.description);
+        wikipediaLink.setPaintFlags(wikipediaLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         String headingText = getIntent().getStringExtra("heading");
 

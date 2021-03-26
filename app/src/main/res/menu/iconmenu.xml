@@ -2,17 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <item android:id="@+id/menu_share"
-            android:icon="@drawable/share"
-            android:title="Share"/>
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/share"
+        android:title="Share" />
 
-        <item android:id="@+id/logout"
-            android:icon="@drawable/logout"
-            android:title="Logout"/>
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        android:title="Logout" />
 
-    <item android:id="@+id/menu_rate"
+    <item
+        android:id="@+id/menu_rate"
         android:icon="@drawable/rate"
-        android:title="Rate us"/>
+        android:title="Rate us" />
 
 
-    </menu>
+</menu>

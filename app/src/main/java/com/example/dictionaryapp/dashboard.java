@@ -35,25 +35,24 @@ public class dashboard extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        nav =(NavigationView)findViewById(R.id.navmenu);
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer);
+        nav = (NavigationView) findViewById(R.id.navmenu);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
 
 
-        toggle= new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item1) {
-               switch (item1.getItemId())
-                {
+                switch (item1.getItemId()) {
                     case R.id.logout:
-                      Intent intent=new Intent(getApplicationContext(),login_signup.class);
-                      startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), login_signup.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.menu_rate:
@@ -90,7 +89,7 @@ public class dashboard extends AppCompatActivity {
     }
 
     public void goToSearch(View view) {
-        Intent intent =new Intent(getApplicationContext(),search.class);
+        Intent intent = new Intent(getApplicationContext(), search.class);
         startActivity(intent);
     }
 

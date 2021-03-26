@@ -79,7 +79,7 @@ public class wordgame extends AppCompatActivity {
                     if (presCounter == 0)
                         edittext.setText("");
                     edittext.setText(edittext.getText().toString() + text);
-                    textView.animate().alpha(0).setDuration(300);
+                    textView.animate().alpha(0).setDuration(500);
                     presCounter++;
 
                     if (presCounter == maxPresCounter)
@@ -101,7 +101,7 @@ public class wordgame extends AppCompatActivity {
 
         if (editText.getText().toString().equals(textAnswer)) {
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this,welldone.class);
+            Intent intent = new Intent(this, welldone.class);
             startActivity(intent);
             editText.setText("");
         } else {

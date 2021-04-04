@@ -10,25 +10,38 @@ import androidx.annotation.Nullable;
 
 public class dbmanager extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Student.db";
-    public static final String TABLE_NAME = "Student_TABLE";
-    public static final String COL_1 = "ID";
-    public static final String COL_2 = "NAME";
-    public static final String COL_3 = "SURNAME";
-    public static final String COL_4 = "MARKS";
-
+    private static final String dbname="dictionary";
     public dbmanager(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, dbname,null, 1);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT , SURNAME, TEXT) ");
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String qry="create table tbl_contact (id integer primary key autoincrement, datex text)";  //datey
+        sqLiteDatabase.execSQL(qry);
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        String qry="DROP TABLE IF EXISTS tbl_contact";
+        sqLiteDatabase.execSQL(qry);
+        onCreate(sqLiteDatabase);
+    }
+    public String addrecord(String datex){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put("datex",datex);
+        float res=db.insert("tbl_contact",null,cv);
+        if (res==-1)
+            return "failed";
+        else
+            return "successfully inserted";
+    }
+    public Cursor readalldata(){
+        SQLiteDatabase db=this.getWritableDatabase();
+        String qry="select*from tbl_contact order by id desc";
+        Cursor cursor=db.rawQuery(qry,null);
+        return cursor;
     }
 }

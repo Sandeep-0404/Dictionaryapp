@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DictionaryApp">
-        <activity android:name=".welldone"></activity>
+        <activity android:name=".addwords"></activity>
+        <activity android:name=".welldone" />
         <activity android:name=".recycler_click" />
         <activity android:name=".MyProfile" />
         <activity android:name=".search" />

@@ -3,12 +3,10 @@ package com.example.dictionaryapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,20 +14,20 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class wordgame extends AppCompatActivity {
+public class qfour extends AppCompatActivity {
 
-    private int presCounter = 0;
-    private String total;
-    int seconds;
-    String score;
-    private TextView countDownText;
-    private CountDownTimer countDownTimer;
-    private int maxPresCounter = 4;
-    private String[] keys = {"R", "I", "B", "D", "X"};
-    private String textAnswer = "BIRD";
-    TextView textScreen, textQuestion, textTitle;
-    private boolean timerRunning;
-    private long timeLeftInMilliseconds = 31000;
+    private int presCounter4 = 0;
+    int seconds4, raw4;
+    private String total4;
+    private String score4;
+    private TextView countDownText4;
+    private CountDownTimer countDownTimer4;
+    private int maxPresCounter4 = 4;
+    private String[] keys4 = {"W", "C", "O", "R", "G"};
+    private String textAnswer4 = "GROW";
+   TextView textScreen4, textQuestion4, textTitle4;
+    private boolean timerRunning4;
+    private long timeLeftInMilliseconds4 = 31000;
 
     @Override
     public void onBackPressed() {
@@ -39,22 +37,21 @@ public class wordgame extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_wordgame);
+        setContentView(R.layout.activity_qfour);
+        countDownText4 = (TextView) findViewById(R.id.countDownText4);
+        total4 = "120";
 
-        countDownText = (TextView) findViewById(R.id.countDownText);
-        total="30";
+        String raws = getIntent().getStringExtra("score");
+        raw4 = Integer.parseInt(raws);
 
-        keys = shuffleArray(keys);
-        for (String key : keys) {
-            addView((LinearLayout) findViewById(R.id.layoutParent), key, ((EditText) findViewById(R.id.edittext)));
+        keys4 = shuffleArray(keys4);
+        for (String key : keys4) {
+            addView((LinearLayout) findViewById(R.id.layoutParent4), key, ((EditText) findViewById(R.id.edittext4)));
         }
 
-        maxPresCounter = 4;
+        maxPresCounter4 = 4;
 
         startStop();
-
-        
 
 
     }
@@ -88,21 +85,21 @@ public class wordgame extends AppCompatActivity {
         textView.setFocusable(true);
         textView.setTextSize(32);
 
-        textQuestion = (TextView) findViewById(R.id.textquestion);
-        textScreen = (TextView) findViewById(R.id.textScreen);
-        textTitle = (TextView) findViewById(R.id.title);
+        textQuestion4 = (TextView) findViewById(R.id.textquestion);
+        textScreen4 = (TextView) findViewById(R.id.textScreen);
+        textTitle4 = (TextView) findViewById(R.id.title);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (presCounter < maxPresCounter) {
-                    if (presCounter == 0)
+                if (presCounter4 < maxPresCounter4) {
+                    if (presCounter4 == 0)
                         edittext.setText("");
                     edittext.setText(edittext.getText().toString() + text);
                     textView.animate().alpha(0).setDuration(500);
-                    presCounter++;
+                    presCounter4++;
 
-                    if (presCounter == maxPresCounter)
+                    if (presCounter4 == maxPresCounter4)
                         doValidate();
 
                 }
@@ -115,35 +112,36 @@ public class wordgame extends AppCompatActivity {
     }
 
     private void doValidate() {
-        presCounter = 0;
-        EditText editText = findViewById(R.id.edittext);
-        LinearLayout linearLayout = findViewById(R.id.layoutParent);
+        presCounter4 = 0;
+        EditText editText4 = findViewById(R.id.edittext4);
+        LinearLayout linearLayout4 = findViewById(R.id.layoutParent4);
 
-        if (editText.getText().toString().equals(textAnswer)) {
-         //   Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            String scores = String.valueOf(seconds);
-            score = scores + "/" + "30";
-            Intent intent = new Intent(this, welldone.class);
+        if (editText4.getText().toString().equals(textAnswer4)) {
+          //  Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+            seconds4 = seconds4 + raw4;
+            String scores = String.valueOf(seconds4);
+            score4 = scores + "/" + "30";
+            Intent intent = new Intent(this, fouranswer.class);
             intent.putExtra("score", scores);
-            intent.putExtra("total", total);
+            intent.putExtra("total", total4);
             startActivity(intent);
             finish();
             stopTimer();
-            editText.setText("");
+            editText4.setText("");
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-            editText.setText("");
+            editText4.setText("");
         }
 
-        keys = shuffleArray(keys);
-        linearLayout.removeAllViews();
-        for (String key : keys) {
-            addView(linearLayout, key, editText);
+        keys4 = shuffleArray(keys4);
+        linearLayout4.removeAllViews();
+        for (String key4 : keys4) {
+            addView(linearLayout4, key4, editText4);
         }
     }
 
     public void startStop() {
-        if (timerRunning) {
+        if (timerRunning4) {
             stopTimer();
         } else {
             startTimer();
@@ -151,20 +149,21 @@ public class wordgame extends AppCompatActivity {
     }
 
     public void startTimer() {
-        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
+        countDownTimer4 = new CountDownTimer(timeLeftInMilliseconds4, 1000) {
             @Override
             public void onTick(long l) {
-                timeLeftInMilliseconds = l;
+                timeLeftInMilliseconds4 = l;
                 updateTimer();
             }
 
             @Override
             public void onFinish() {
-                String scores = String.valueOf(seconds);
-                score = scores + "/" + "30";
-                Intent intent = new Intent(getApplicationContext(), welldone.class);
+                seconds4 = seconds4 + raw4;
+                String scores = String.valueOf(seconds4);
+                score4 = scores + "/" + "30";
+                Intent intent = new Intent(getApplicationContext(), fouranswer.class);
                 intent.putExtra("score", scores);
-                intent.putExtra("total", total);
+                intent.putExtra("total", total4);
                 startActivity(intent);
                 finish();
 
@@ -172,25 +171,25 @@ public class wordgame extends AppCompatActivity {
         }.start();
 
 
-        timerRunning = true;
+        timerRunning4 = true;
     }
 
     public void stopTimer() {
-        countDownTimer.cancel();
-        timerRunning = false;
+        countDownTimer4.cancel();
+        timerRunning4 = false;
     }
 
     public void updateTimer() {
-        int minutes = (int) timeLeftInMilliseconds / 60000;
-        seconds = (int) timeLeftInMilliseconds % 60000 / 1000;
+        int minutes = (int) timeLeftInMilliseconds4 / 60000;
+        seconds4 = (int) timeLeftInMilliseconds4 % 60000 / 1000;
 
         String timeLeftText;
         timeLeftText = "" + minutes;
         timeLeftText += ":";
-        if (seconds < 10) timeLeftText += "0";
-        timeLeftText += seconds;
+        if (seconds4 < 10) timeLeftText += "0";
+        timeLeftText += seconds4;
 
-        countDownText.setText(timeLeftText);
+        countDownText4.setText(timeLeftText);
     }
 
 

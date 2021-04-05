@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DictionaryApp">
-        <activity android:name=".addwords"></activity>
+        <activity android:name=".confirmPlay"></activity>
+        <activity android:name=".fiveanswer" />
+        <activity android:name=".fouranswer" />
+        <activity android:name=".threeanswer" />
+        <activity android:name=".twoanswer" />
+        <activity android:name=".qfive" />
+        <activity android:name=".qfour" />
+        <activity android:name=".qthree" />
+        <activity android:name=".qtwo" />
+        <activity android:name=".addwords" />
         <activity android:name=".welldone" />
         <activity android:name=".recycler_click" />
         <activity android:name=".MyProfile" />

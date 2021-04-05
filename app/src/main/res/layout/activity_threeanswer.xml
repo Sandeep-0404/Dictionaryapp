@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".welldone">
+    tools:context=".threeanswer">
 
 
     <TextView
-        android:id="@+id/scoreDisplay"
+        android:id="@+id/scoreDisplay3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -26,7 +26,7 @@
         android:background="@color/black" />
 
     <TextView
-        android:id="@+id/total"
+        android:id="@+id/total3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -36,11 +36,11 @@
 
 
     <Button
-        android:id="@+id/nextQ"
+        android:id="@+id/nextQ3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="nextQ"
+        android:onClick="nextQ3"
         android:text="Next" />
 
 

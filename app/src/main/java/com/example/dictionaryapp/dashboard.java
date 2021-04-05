@@ -23,9 +23,24 @@ import com.google.android.material.navigation.NavigationView;
 public class dashboard extends AppCompatActivity {
 
     NavigationView nav;
+    private  long backPressedTime;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+
+    @Override
+    public void onBackPressed() {
+      
+       if(backPressedTime+2000>System.currentTimeMillis()){
+           super.onBackPressed();
+           return;
+
+       }else{
+           Toast.makeText(getApplicationContext(), "Press Back again to exit", Toast.LENGTH_SHORT).show();
+       }
+
+       backPressedTime=System.currentTimeMillis();
+    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -88,7 +103,7 @@ public class dashboard extends AppCompatActivity {
     }
 
     public void wordgame(View view) {
-        Intent intent = new Intent(getApplicationContext(), wordgame.class);
+        Intent intent = new Intent(getApplicationContext(), confirmPlay.class);
         startActivity(intent);
     }
 
@@ -96,6 +111,7 @@ public class dashboard extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), search.class);
         startActivity(intent);
     }
+
 
 }
 

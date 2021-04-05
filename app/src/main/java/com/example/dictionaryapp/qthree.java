@@ -3,12 +3,10 @@ package com.example.dictionaryapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,20 +14,20 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class wordgame extends AppCompatActivity {
+public class qthree extends AppCompatActivity {
 
-    private int presCounter = 0;
-    private String total;
-    int seconds;
-    String score;
-    private TextView countDownText;
-    private CountDownTimer countDownTimer;
-    private int maxPresCounter = 4;
-    private String[] keys = {"R", "I", "B", "D", "X"};
-    private String textAnswer = "BIRD";
-    TextView textScreen, textQuestion, textTitle;
-    private boolean timerRunning;
-    private long timeLeftInMilliseconds = 31000;
+    private int presCounter3 = 0;
+    int seconds3, raw3;
+    private String total3;
+    private String score;
+    private TextView countDownText3;
+    private CountDownTimer countDownTimer3;
+    private int maxPresCounter3 = 4;
+    private String[] keys3 = {"G", "A", "N", "I", "R"};
+    private String textAnswer3= "RAIN";
+   TextView textScreen3, textQuestion3, textTitle3;
+    private boolean timerRunning3;
+    private long timeLeftInMilliseconds3 = 31000;
 
     @Override
     public void onBackPressed() {
@@ -39,22 +37,21 @@ public class wordgame extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_wordgame);
+        setContentView(R.layout.activity_qthree);
+        countDownText3 = (TextView) findViewById(R.id.countDownText3);
+        total3 = "90";
 
-        countDownText = (TextView) findViewById(R.id.countDownText);
-        total="30";
+        String raws = getIntent().getStringExtra("score");
+        raw3 = Integer.parseInt(raws);
 
-        keys = shuffleArray(keys);
-        for (String key : keys) {
-            addView((LinearLayout) findViewById(R.id.layoutParent), key, ((EditText) findViewById(R.id.edittext)));
+        keys3 = shuffleArray(keys3);
+        for (String key : keys3) {
+            addView((LinearLayout) findViewById(R.id.layoutParent3), key, ((EditText) findViewById(R.id.edittext3)));
         }
 
-        maxPresCounter = 4;
+        maxPresCounter3 = 4;
 
         startStop();
-
-        
 
 
     }
@@ -88,21 +85,21 @@ public class wordgame extends AppCompatActivity {
         textView.setFocusable(true);
         textView.setTextSize(32);
 
-        textQuestion = (TextView) findViewById(R.id.textquestion);
-        textScreen = (TextView) findViewById(R.id.textScreen);
-        textTitle = (TextView) findViewById(R.id.title);
+        textQuestion3 = (TextView) findViewById(R.id.textquestion3);
+        textScreen3 = (TextView) findViewById(R.id.textScreen3);
+        textTitle3 = (TextView) findViewById(R.id.title3);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (presCounter < maxPresCounter) {
-                    if (presCounter == 0)
+                if (presCounter3 < maxPresCounter3) {
+                    if (presCounter3 == 0)
                         edittext.setText("");
                     edittext.setText(edittext.getText().toString() + text);
                     textView.animate().alpha(0).setDuration(500);
-                    presCounter++;
+                    presCounter3++;
 
-                    if (presCounter == maxPresCounter)
+                    if (presCounter3 == maxPresCounter3)
                         doValidate();
 
                 }
@@ -115,35 +112,36 @@ public class wordgame extends AppCompatActivity {
     }
 
     private void doValidate() {
-        presCounter = 0;
-        EditText editText = findViewById(R.id.edittext);
-        LinearLayout linearLayout = findViewById(R.id.layoutParent);
+        presCounter3 = 0;
+        EditText editText3 = findViewById(R.id.edittext3);
+        LinearLayout linearLayout3 = findViewById(R.id.layoutParent3);
 
-        if (editText.getText().toString().equals(textAnswer)) {
-         //   Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            String scores = String.valueOf(seconds);
+        if (editText3.getText().toString().equals(textAnswer3)) {
+          //  Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+            seconds3 = seconds3 + raw3;
+            String scores = String.valueOf(seconds3);
             score = scores + "/" + "30";
-            Intent intent = new Intent(this, welldone.class);
+            Intent intent = new Intent(this, threeanswer.class);
             intent.putExtra("score", scores);
-            intent.putExtra("total", total);
+            intent.putExtra("total", total3);
             startActivity(intent);
             finish();
             stopTimer();
-            editText.setText("");
+            editText3.setText("");
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-            editText.setText("");
+            editText3.setText("");
         }
 
-        keys = shuffleArray(keys);
-        linearLayout.removeAllViews();
-        for (String key : keys) {
-            addView(linearLayout, key, editText);
+        keys3 = shuffleArray(keys3);
+        linearLayout3.removeAllViews();
+        for (String key3 : keys3) {
+            addView(linearLayout3, key3, editText3);
         }
     }
 
     public void startStop() {
-        if (timerRunning) {
+        if (timerRunning3) {
             stopTimer();
         } else {
             startTimer();
@@ -151,20 +149,21 @@ public class wordgame extends AppCompatActivity {
     }
 
     public void startTimer() {
-        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
+        countDownTimer3 = new CountDownTimer(timeLeftInMilliseconds3, 1000) {
             @Override
             public void onTick(long l) {
-                timeLeftInMilliseconds = l;
+                timeLeftInMilliseconds3 = l;
                 updateTimer();
             }
 
             @Override
             public void onFinish() {
-                String scores = String.valueOf(seconds);
+                seconds3 = seconds3 + raw3;
+                String scores = String.valueOf(seconds3);
                 score = scores + "/" + "30";
-                Intent intent = new Intent(getApplicationContext(), welldone.class);
+                Intent intent = new Intent(getApplicationContext(), threeanswer.class);
                 intent.putExtra("score", scores);
-                intent.putExtra("total", total);
+                intent.putExtra("total", total3);
                 startActivity(intent);
                 finish();
 
@@ -172,25 +171,25 @@ public class wordgame extends AppCompatActivity {
         }.start();
 
 
-        timerRunning = true;
+        timerRunning3 = true;
     }
 
     public void stopTimer() {
-        countDownTimer.cancel();
-        timerRunning = false;
+        countDownTimer3.cancel();
+        timerRunning3 = false;
     }
 
     public void updateTimer() {
-        int minutes = (int) timeLeftInMilliseconds / 60000;
-        seconds = (int) timeLeftInMilliseconds % 60000 / 1000;
+        int minutes = (int) timeLeftInMilliseconds3 / 60000;
+        seconds3 = (int) timeLeftInMilliseconds3 % 60000 / 1000;
 
         String timeLeftText;
         timeLeftText = "" + minutes;
         timeLeftText += ":";
-        if (seconds < 10) timeLeftText += "0";
-        timeLeftText += seconds;
+        if (seconds3 < 10) timeLeftText += "0";
+        timeLeftText += seconds3;
 
-        countDownText.setText(timeLeftText);
+        countDownText3.setText(timeLeftText);
     }
 
 

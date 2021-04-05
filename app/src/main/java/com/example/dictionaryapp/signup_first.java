@@ -102,6 +102,7 @@ public class signup_first extends AppCompatActivity {
                     intent.putExtra("emailid", emailtext);
                     intent.putExtra("password", passwordtext);
                     startActivity(intent);
+                    finish();
 
                 } else {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {

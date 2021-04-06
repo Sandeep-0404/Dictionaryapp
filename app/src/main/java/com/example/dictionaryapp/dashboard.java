@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -28,19 +29,7 @@ public class dashboard extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
 
-    @Override
-    public void onBackPressed() {
-      
-       if(backPressedTime+2000>System.currentTimeMillis()){
-           super.onBackPressed();
-           return;
-
-       }else{
-           Toast.makeText(getApplicationContext(), "Press Back again to exit", Toast.LENGTH_SHORT).show();
-       }
-
-       backPressedTime=System.currentTimeMillis();
-    }
+   
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -70,8 +59,13 @@ public class dashboard extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item1) {
                 switch (item1.getItemId()) {
                     case R.id.logout:
-                        Intent intent = new Intent(getApplicationContext(), login_signup.class);
+                        SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=preferences.edit();
+                        editor.putString("remember","false");
+                        editor.apply();
+                        Intent intent=new Intent(getApplicationContext(),login_signup.class);
                         startActivity(intent);
+                        finish();
                         break;
 
                     case R.id.menu_rate:

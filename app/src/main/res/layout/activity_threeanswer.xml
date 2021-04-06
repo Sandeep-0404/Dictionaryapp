@@ -5,35 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".threeanswer">
-
-
-    <TextView
-        android:id="@+id/scoreDisplay3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:text="welldone"
-        android:textSize="48sp"
-
-        />
-
-    <View
-        android:layout_width="80dp"
-        android:layout_height="2dp"
-        android:layout_gravity="center"
-        android:background="@color/black" />
+    tools:context=".threeanswer"
+    android:background="@drawable/background_dashboard">
 
     <TextView
-        android:id="@+id/total3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Score"
+        android:textColor="@color/white"
+        android:textSize="75sp"
+        android:textStyle="bold"
         android:layout_gravity="center"
-        android:text="30"
-        android:textSize="48sp"
-        android:layout_marginBottom="80dp"/>
+        android:layout_margin="40dp"/>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_gravity="center"
+        android:background="@drawable/white"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:id="@+id/scoreDisplay3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:text="welldone"
+            android:textColor="@color/white"
+            android:textSize="42sp"
+
+            />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/total3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="80dp"
+            android:text="30"
+            android:textColor="@color/white"
+            android:textSize="48sp" />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/nextQ3"

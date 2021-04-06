@@ -17,5 +17,6 @@ public class confirmPlay extends AppCompatActivity {
     public void ready(View view) {
         Intent intent=new Intent(this,wordgame.class);
         startActivity(intent);
+        finish();
     }
 }

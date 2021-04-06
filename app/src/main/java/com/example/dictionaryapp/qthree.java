@@ -23,8 +23,8 @@ public class qthree extends AppCompatActivity {
     private TextView countDownText3;
     private CountDownTimer countDownTimer3;
     private int maxPresCounter3 = 4;
-    private String[] keys3 = {"G", "A", "N", "I", "R"};
-    private String textAnswer3= "RAIN";
+    private String[] keys3 = {"D", "E", "M", "N", "B"};
+    private String textAnswer3= "BEND";
    TextView textScreen3, textQuestion3, textTitle3;
     private boolean timerRunning3;
     private long timeLeftInMilliseconds3 = 31000;

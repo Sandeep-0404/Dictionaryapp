@@ -36,7 +36,7 @@ public class login_signup extends AppCompatActivity {
     EditText Emailid, pass;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
-    CheckBox rememberMe;
+    CheckBox remember;
 
 
     @Override
@@ -47,13 +47,48 @@ public class login_signup extends AppCompatActivity {
 
 
         newusertext = (TextView) findViewById(R.id.newuser);
-        rememberMe = (CheckBox) findViewById(R.id.remember_me);
+        remember = (CheckBox) findViewById(R.id.remember_me);
         Emailid = (EditText) findViewById(R.id.emailsandy1);
         pass = (EditText) findViewById(R.id.passwordsandy);
         progressBar = (ProgressBar) findViewById(R.id.progressbarlogin);
         mAuth = FirebaseAuth.getInstance();
         newusertext.setPaintFlags(newusertext.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
+        SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+        String checkbox =preferences.getString("remember","");
+        if(checkbox.equals("true")){
+
+        Intent intent=new Intent(getApplicationContext(),dashboard.class);
+        startActivity(intent);
+        finish();
+
+        }
+
+
+        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                 if(compoundButton.isChecked()){
+
+                     SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+                     SharedPreferences.Editor editor=preferences.edit();
+                     editor.putString("remember","true");
+                     editor.apply();
+                     Toast.makeText(getApplicationContext(), "Checked", Toast.LENGTH_SHORT).show();
+
+
+                 }else if(!compoundButton.isChecked()){
+
+                     SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+                     SharedPreferences.Editor editor=preferences.edit();
+                     editor.putString("remember","false");
+                     editor.apply();
+                     Toast.makeText(getApplicationContext(), "UnChecked", Toast.LENGTH_SHORT).show();
+
+
+                 }
+            }
+        });
 
     }
 
@@ -91,9 +126,6 @@ public class login_signup extends AppCompatActivity {
             pass.requestFocus();
         }
 
-        if (rememberMe.isChecked()) {
-
-        }
 
 
         progressBar.setVisibility(View.VISIBLE);

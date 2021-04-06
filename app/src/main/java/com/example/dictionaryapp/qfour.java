@@ -23,8 +23,8 @@ public class qfour extends AppCompatActivity {
     private TextView countDownText4;
     private CountDownTimer countDownTimer4;
     private int maxPresCounter4 = 4;
-    private String[] keys4 = {"W", "C", "O", "R", "G"};
-    private String textAnswer4 = "GROW";
+    private String[] keys4 = {"N", "O", "R", "J", "H"};
+    private String textAnswer4 = "HORN";
    TextView textScreen4, textQuestion4, textTitle4;
     private boolean timerRunning4;
     private long timeLeftInMilliseconds4 = 31000;

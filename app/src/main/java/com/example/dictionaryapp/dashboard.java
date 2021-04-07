@@ -16,10 +16,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class dashboard extends AppCompatActivity {
 
@@ -28,6 +31,10 @@ public class dashboard extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+
+
+    FirebaseUser currentUser;
+    FirebaseAuth mAuth;
 
    
 
@@ -44,6 +51,12 @@ public class dashboard extends AppCompatActivity {
 
         nav = (NavigationView) findViewById(R.id.navmenu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+
+
+
+mAuth=FirebaseAuth.getInstance();
+currentUser=mAuth.getCurrentUser();
+
 
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
@@ -74,7 +87,16 @@ public class dashboard extends AppCompatActivity {
                         break;
 
                     case R.id.menu_share:
-                        Toast.makeText(dashboard.this, "share", Toast.LENGTH_SHORT).show();
+                        Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+                        sharingIntent.setType("text/plain");
+                        String shareBody="App made by sandeep ghosh";
+                        String shareSubject="Made by sandeep ghosh";
+
+                        sharingIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
+                        sharingIntent.putExtra(Intent.EXTRA_SUBJECT,shareSubject);
+
+                        startActivity(Intent.createChooser(sharingIntent,"Share Using"));
+
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }
@@ -83,7 +105,15 @@ public class dashboard extends AppCompatActivity {
             }
         });
 
+
     }
+
+
+
+
+
+
+    
 
 
     public void pronunciation(View view) {

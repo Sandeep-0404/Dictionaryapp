@@ -137,6 +137,7 @@ public class login_signup extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(getApplicationContext(), dashboard.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("email",email);
                     startActivity(intent);
                     finish();
                 } else {

@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/nav_user_photo"
         android:onClick="profilePic"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -16,6 +17,7 @@
         android:src="@drawable/username" />
 
     <TextView
+        android:id="@+id/nav_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
@@ -25,6 +27,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/nav_user_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"

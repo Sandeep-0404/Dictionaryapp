@@ -1,25 +1,51 @@
 package com.example.dictionaryapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
+
+import java.io.File;
+import java.util.UUID;
 
 public class MyProfile extends AppCompatActivity {
 
     private TextView usernameid;
     private RatingBar ratingBar;
     int MyRAting = 0;
+    private ImageView profilePic;
+    private Uri imageUri;
+    FirebaseAuth mAuth;
+TextView displayemailuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
 
-        usernameid = (TextView) findViewById(R.id.usernameid);
+        displayemailuser=(TextView) findViewById(R.id.displayemail);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        profilePic = (ImageView) findViewById(R.id.profilePic);
+        mAuth=FirebaseAuth.getInstance();
+
+        loadUserINformation();
+
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -60,7 +86,12 @@ public class MyProfile extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    private void loadUserINformation() {
+        FirebaseUser user=mAuth.getCurrentUser();
+        String displayEmail=user.getEmail();
+        displayemailuser.setText(displayEmail);
 
     }
 }

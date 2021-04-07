@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class dashboard extends AppCompatActivity {
 
     NavigationView nav;
-    private  long backPressedTime;
+    private long backPressedTime;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -35,8 +35,8 @@ public class dashboard extends AppCompatActivity {
 
     FirebaseUser currentUser;
     FirebaseAuth mAuth;
-
-   
+    View hview;
+    TextView emailnav;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -53,10 +53,8 @@ public class dashboard extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
 
 
-
-mAuth=FirebaseAuth.getInstance();
-currentUser=mAuth.getCurrentUser();
-
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
 
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
@@ -71,31 +69,40 @@ currentUser=mAuth.getCurrentUser();
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item1) {
                 switch (item1.getItemId()) {
+
+                    case R.id.myprofile:
+                        Intent intent1=new Intent(getApplicationContext(),MyProfile.class);
+                        startActivity(intent1);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+
                     case R.id.logout:
-                        SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                        SharedPreferences.Editor editor=preferences.edit();
-                        editor.putString("remember","false");
+                        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("remember", "false");
                         editor.apply();
-                        Intent intent=new Intent(getApplicationContext(),login_signup.class);
+                        Intent intent = new Intent(getApplicationContext(), login_signup.class);
                         startActivity(intent);
                         finish();
                         break;
 
                     case R.id.menu_rate:
-                        Toast.makeText(dashboard.this, "rate", Toast.LENGTH_SHORT).show();
+                        Intent intent3=new Intent(getApplicationContext(),MyProfile.class);
+                        startActivity(intent3);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
                     case R.id.menu_share:
-                        Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+                        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");
-                        String shareBody="App made by sandeep ghosh";
-                        String shareSubject="Made by sandeep ghosh";
+                        String shareBody = "App made by sandeep ghosh";
+                        String shareSubject = "Made by sandeep ghosh";
 
-                        sharingIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
-                        sharingIntent.putExtra(Intent.EXTRA_SUBJECT,shareSubject);
+                        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
 
-                        startActivity(Intent.createChooser(sharingIntent,"Share Using"));
+                        startActivity(Intent.createChooser(sharingIntent, "Share Using"));
 
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -107,13 +114,6 @@ currentUser=mAuth.getCurrentUser();
 
 
     }
-
-
-
-
-
-
-    
 
 
     public void pronunciation(View view) {
